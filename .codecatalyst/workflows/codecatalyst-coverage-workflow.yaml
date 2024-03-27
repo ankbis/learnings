@@ -1,0 +1,27 @@
+Name: codecatalyst-coverage-workflow
+SchemaVersion: 1.0
+Triggers:
+  - Type: PUSH
+    Branches:
+      - main
+Actions:
+  MeasureCodeCoverage:
+    Identifier: aws/code-coverage@v0.1.2
+    Environment:
+      Name: codecatalyst-coverage-environment
+      Connections:
+        - Name: codecatalyst-account-connection
+          Role: codecatalyst-coverage-role
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Outputs:
+      Reports:
+        CoverageReport:
+          Format: CLOVERXML
+          IncludePaths:
+            - "coverage/*"
+    Configuration:
+      Steps:
+        - Run: npm install
+        - Run: npm run test
