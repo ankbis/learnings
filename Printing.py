@@ -43,12 +43,32 @@ def least_difference(a, b, c):
     """Return the smallest difference between any two numbers
         among a, b and c.
 
-        >>> least_difference(1, 5, -5)
-        4
+        >>> least_difference(1, 10, 100)
+        90
+        >>> least_difference(1, 10, 10)
+        0
+        >>> least_difference(5, 6, 7)
+        1
         """
     diff1 = abs(a - b)
     diff2 = abs(b - c)
     diff3 = abs(c - a)
+
+
+def test_issue(a, b, c):
+    """
+    Test if the difference between any two numbers among a, b, and c is greater than 10.
+    Returns True if the issue is present, False otherwise.
+
+    >>> test_issue(1, 10, 100)
+    True
+    >>> test_issue(1, 10, 10)
+    False
+    >>> test_issue(5, 6, 7)
+    False
+    """
+    diff = least_difference(a, b, c)
+    return diff > 10
     return min(diff1, diff2, diff3)
 
 
