@@ -43,7 +43,7 @@ def least_difference(a, b, c):
     """Return the smallest difference between any two numbers
         among a, b and c.
 
-        >>> least_difference(1, 5, -5)
+        >>> least_difference(1, 5, -5) 
         4
         """
     diff1 = abs(a - b)
@@ -51,6 +51,28 @@ def least_difference(a, b, c):
     diff3 = abs(c - a)
     return min(diff1, diff2, diff3)
 
+
+def test_least_difference():
+    assert least_difference(1, 5, -5) == 4
+    assert least_difference(10, 20, 30) == 10
+    assert least_difference(-5, 0, 5) == 5
+    assert least_difference(1, 1, 1) == 0
+    print("All test cases passed for least_difference")
+
+test_least_difference()
+
+def test_issue():
+    # Test case 1: Verify issue is correctly identified and handled
+    result = perform_operation_related_to_issue()
+    assert result == expected_result, "Issue not resolved: Unexpected result"
+    
+    # Test case 2: Verify edge cases are handled correctly
+    edge_case_result = perform_operation_for_edge_case()
+    assert edge_case_result == expected_edge_case_result, "Issue not resolved: Edge case failed"
+    
+    print("All test cases passed for test_issue")
+
+test_issue()
 
 print(
     least_difference(1, 10, 100),
