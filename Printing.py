@@ -1,5 +1,10 @@
 print("hello world")
 
+from calculator import Calculator
+calc = Calculator()
+print(calc.add(5, 3))
+print(calc.subtract(10, 4))
+
 var1 = 10
 
 print(var1)
@@ -65,6 +70,25 @@ print(1, 2, 3, sep=' < ')
 
 def greet(who="Ankush"):
     print("Hello, ", who)
+
+import unittest
+from calculator import Calculator
+
+class TestCalculator(unittest.TestCase):
+    def test_add(self):
+        calc = Calculator()
+        self.assertEqual(calc.add(2, 3), 5)
+        self.assertEqual(calc.add(0, 0), 0)
+        self.assertEqual(calc.add(-5, 10), 5)
+
+    def test_subtract(self):
+        calc = Calculator()
+        self.assertEqual(calc.subtract(10, 4), 6)
+        self.assertEqual(calc.subtract(5, 10), -5)
+        self.assertEqual(calc.subtract(0, 0), 0)
+
+if __name__ == '__main__':
+    unittest.main()
 
     greet()
     greet(who="Nam")
