@@ -52,10 +52,53 @@ def least_difference(a, b, c):
     return min(diff1, diff2, diff3)
 
 
+def multiply(a, b):
+    """Multiply two numbers.
+
+    Args:
+        a (numeric): The first number.
+        b (numeric): The second number.
+
+    Returns:
+        numeric: The product of `a` and `b`.
+    """
+    return a * b
+
+
+def divide(a, b):
+    """Divide a by b.
+
+    Args:
+        a (numeric): The dividend.
+        b (numeric): The divisor.
+
+    Raises:
+        ZeroDivisionError: If `b` is zero.
+
+    Returns:
+        float: The quotient of `a` divided by `b`.
+    """
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    return a / b
+
+
+        >>> least_difference(1, 5, -5)
+        4
+        """
+    diff1 = abs(a - b)
+    diff2 = abs(b - c)
+    diff3 = abs(c - a)
+    return min(diff1, diff2, diff3)
+
+
 print(
     least_difference(1, 10, 100),
     least_difference(1, 10, 10),
-    least_difference(5, 6, 7), # Python allows trailing commas in argument lists. How nice is that?
+    least_difference(5, 6, 7),  # Python allows trailing commas in argument lists. How nice is that?
+    multiply(5, 3),
+    multiply(-2, 4),
+    divide(10, 2),
 )
 
 help(least_difference)
