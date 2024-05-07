@@ -1,3 +1,5 @@
+from aws_utils import create_dynamodb_table
+
 print("hello world")
 
 var1 = 10
